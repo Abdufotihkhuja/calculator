@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./css/style.min.css" />
+        <title>Calculator</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div id="app" v-cloak>
+                <header class="nav-panel">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a class="active-link" href="#">Basic</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">Scientific</a>
+                        </li>
+                    </ul>
+                </header>
+                <main class="main">
+                    <div class="resolve-step">
+                        {{resolve.length ? resolve : 'Введите значение'}}
+                    </div>
+                    <div class="resolve-result">{{result}}</div>
+                </main>
+                <section class="enter-section">
+                    <ul class="header-btn-list">
+                        <li>
+                            <button class="header--btn">e</button>
+                        </li>
+                        <li>
+                            <button class="header--btn">m</button>
+                        </li>
+                        <li>
+                            <button
+                                @click="resolve+='sin()'"
+                                class="header--btn"
+                            >
+                                sin()
+                            </button>
+                        </li>
+                        <li>
+                            <button class="header--btn">deg</button>
+                        </li>
+                    </ul>
+                    <ul class="main-btn-list">
+                        <li>
+                            <button
+                                @click="resolve='';result='0'"
+                                class="btn main--btn"
+                            >
+                                {{ret}}
+                            </button>
+                        </li>
+                        <li>
+                            <button @click="plusMinus" class="btn main--btn">
+                                +_
+                            </button>
+                        </li>
+                        <li>
+                            <button @click="resolve+='/'" class="btn main--btn">
+                                /
+                            </button>
+                        </li>
+                        <li>
+                            <button @click="resolve+='*'" class="btn main--btn">
+                                *
+                            </button>
+                        </li>
+                        <li>
+                            <button @click="resolve+=7" class="btn main--btn">
+                                7
+                            </button>
+                        </li>
+                        <li>
+                            <button @click="resolve+=8" class="btn main--btn">
+                                8
+                            </button>
+                        </li>
+                        <li>
+                            <button @click="resolve+=9" class="btn main--btn">
+                                9
+                            </button>
+                        </li>
+                        <li>
+                            <button @click="resolve+='-'" class="btn main--btn">
+                                -
+                            </button>
+                        </li>
+                        <li>
+                            <button @click="resolve+=4" class="btn main--btn">
+                                4
+                            </button>
+                        </li>
+                        <li>
+                            <button @click="resolve+=5" class="btn main--btn">
+                                5
+                            </button>
+                        </li>
+                        <li>
+                            <button @click="resolve+=6" class="btn main--btn">
+                                6
+                            </button>
+                        </li>
+                        <li>
+                            <button @click="resolve+='+'" class="btn main--btn">
+                                +
+                            </button>
+                        </li>
+                        <li>
+                            <button @click="resolve+=1" class="btn main--btn">
+                                1
+                            </button>
+                        </li>
+                        <li>
+                            <button @click="resolve+=2" class="btn main--btn">
+                                2
+                            </button>
+                        </li>
+                        <li>
+                            <button @click="resolve+=3" class="btn main--btn">
+                                3
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                @click="resolve+='**'"
+                                class="btn main--btn"
+                            >
+                                ^
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="footer--btn">
+                        <button @click="resolve+=0" class="btn zero-btn">
+                            0
+                        </button>
+                        <button @click="resolve+='.'" class="btn dot-btn">
+                            .
+                        </button>
+                        <button @click.keycode.13="solve" class="btn equal-btn">
+                            =
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <script src="https://unpkg.com/vue@next"></script>
+        <script src="./js/main.js"></script>
+    </body>
+</html>
